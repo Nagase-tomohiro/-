@@ -1,4 +1,4 @@
-// カードがフワッと表示されるアニメーション
+// カードがふわっと表示されるアニメーション
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     
