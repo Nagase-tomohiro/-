@@ -1,29 +1,79 @@
+:root {
+    --bg-color: #050505;
+    --card-bg: #121212;
+    --accent-color: #3b82f6;
+    --text-color: #ffffff;
+    --secondary-text: #a0a0a0;
+}
+
 body {
-    font-family: sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f0f2f5;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .container {
-    text-align: center;
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 24px;
+    padding: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.profile { grid-column: span 2; grid-row: span 2; }
+.skills { grid-column: span 2; }
+.project { grid-column: span 1; }
+.contact { grid-column: span 1; }
+
+.accent-text { color: var(--accent-color); margin-bottom: 0; }
+h1 { font-size: 3rem; font-weight: 900; margin: 0; line-height: 1.1; }
+h2 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 10px; }
+p { color: var(--secondary-text); line-height: 1.6; }
+
+.tag-container { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+.tag {
+    background: #222;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    border: 1px solid #444;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: var(--accent-color);
     color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
 }
 
-button:hover {
-    background-color: #0056b3;
+@media (max-width: 768px) {
+    .container { grid-template-columns: 1fr; }
+    .profile, .skills, .project, .contact { grid-column: span 1; }
 }

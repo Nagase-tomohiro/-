@@ -1,7 +1,15 @@
-const btn = document.getElementById('btn');
-const msg = document.getElementById('msg');
-
-btn.addEventListener('click', () => {
-    msg.textContent = 'こんにちは！ボタンが押したね？';
-    msg.style.color = 'green';
+// カードがフワッと表示されるアニメーション
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'all 0.6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
 });
